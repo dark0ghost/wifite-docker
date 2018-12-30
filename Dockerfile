@@ -38,7 +38,7 @@ WORKDIR /home/wifite
 
 # AJOUT INCLUDES
 COPY ./includes/wifite.sh  /home/wifite/wifite.sh
-RUN chmod +x wifite.sh
+RUN sudo chmod +x wifite.sh
 
 # COMMANDE AU DEMARRAGE DU CONTENEUR
 CMD ./wifite.sh
