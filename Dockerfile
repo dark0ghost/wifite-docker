@@ -25,7 +25,7 @@ RUN echo 'deb https://http.kali.org/kali kali-rolling main contrib non-free' >> 
 echo 'deb-src https://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list && \
 wget -q -O - https://archive.kali.org/archive-key.asc | apt-key add
 
-# INSTALLATION DE L'APPLICATION
+# INSTALLATION DES APPLICATIONS
 RUN apt-get update && apt-get install --no-install-recommends -y \
 net-tools \
 kmod \
