@@ -90,4 +90,4 @@ USER wifite
 WORKDIR /home/wifite
 
 # COMMANDE AU DEMARRAGE DU CONTENEUR
-CMD sudo wifite
+CMD /bin/bash
