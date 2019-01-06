@@ -32,7 +32,7 @@ Utiliser une antenne avec mode monitor
 ## INSTALLATION
 
 ```
-docker run -ti --name wifite -v ${HOME}:/home/wifite --privileged --network host alexandreoda/wifite /bin/bash
+docker run -ti --name wifite -v ${HOME}:/home/wifite --privileged --network host alexandreoda/wifite
 ```
 
 
