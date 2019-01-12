@@ -2,6 +2,7 @@ FROM debian:stretch-slim
 
 MAINTAINER https://oda-alexandre.github.io
 
+# VARIABLES D'ENVIRONNEMENT
 ENV DEBIAN_FRONTEND noninteractive
 
 # INSTALLATION DES PREREQUIS
