@@ -1,32 +1,39 @@
 # WIFITE
 
-![wifite](https://raw.githubusercontent.com/oda-alexandre/wifite/master/img/logo-wifite.png) ![docker](https://raw.githubusercontent.com/oda-alexandre/wifite/master/img/logo-docker.png)
+[![dockeri.co](https://dockeri.co/image/alexandreoda/wifite)](https://hub.docker.com/r/alexandreoda/wifite)
 
 
 ## INDEX
 
-- [Build Docker](#BUILD)
+- [Badges](#BADGES)
 - [Introduction](#INTRODUCTION)
 - [Prerequis](#PREREQUIS)
 - [Installation](#INSTALLATION)
 - [License](#LICENSE)
 
 
-## BUILD DOCKER
+## BADGES
 
-[![wifite docker build](https://img.shields.io/docker/build/alexandreoda/wifite.svg)](https://hub.docker.com/r/alexandreoda/wifite)
+[![version](https://images.microbadger.com/badges/version/alexandreoda/wifite.svg)](https://microbadger.com/images/alexandreoda/wifite)
+[![size](https://images.microbadger.com/badges/image/alexandreoda/wifite.svg)](https://microbadger.com/images/alexandreoda/wifite")
+[![build](https://img.shields.io/docker/build/alexandreoda/wifite.svg)](https://hub.docker.com/r/alexandreoda/wifite)
+[![automated](https://img.shields.io/docker/automated/alexandreoda/wifite.svg)](https://hub.docker.com/r/alexandreoda/wifite)
 
 
 ## INTRODUCTION
 
-Ce repository contient le fichier Dockerfile de [wifite](https://github.com/derv82/wifite2) pour [docker](https://www.docker.com), mis à jour automatiquement dans le [docker hub](https://hub.docker.com/r/alexandreoda/wifite/) public.
+Ce repository contient le fichier Dockerfile de
+
+- [wifite](https://github.com/derv82/wifite2)
+
+Mis à jour automatiquement dans le [docker hub public](https://hub.docker.com/r/alexandreoda/wifite)
 
 
 ## PREREQUIS
 
 Installer [docker](https://www.docker.com)
 
-Utiliser une antenne avec mode monitor
+Utiliser une carte wifi avec prise en charge du mode monitor
 
 
 ## INSTALLATION

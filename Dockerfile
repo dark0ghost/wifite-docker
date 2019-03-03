@@ -1,8 +1,9 @@
 FROM debian:stretch-slim
 
-MAINTAINER https://oda-alexandre.github.io
+MAINTAINER https://oda-alexandre.com
 
-# VARIABLES D'ENVIRONNEMENT
+# VARIABLES
+ENV USER wifite
 ENV DEBIAN_FRONTEND noninteractive
 
 # INSTALLATION DES PREREQUIS
@@ -19,15 +20,15 @@ git \
 curl \
 make \
 gcc \
-wget
+wget && \
 
 # MODIFICATION DU FICHIER /etc/apt/sources.list AVEC LES REPOS kali-rolling contrib non-free
-RUN echo 'deb https://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list && \
+echo 'deb https://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list && \
 echo 'deb-src https://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list && \
-wget -q -O - https://archive.kali.org/archive-key.asc | apt-key add
+wget -q -O - https://archive.kali.org/archive-key.asc | apt-key add && \
 
 # INSTALLATION DES APPLICATIONS
-RUN apt-get update && apt-get install --no-install-recommends -y \
+apt-get update && apt-get install --no-install-recommends -y \
 net-tools \
 kmod \
 ieee-data \
@@ -52,43 +53,43 @@ reaver \
 cowpatty \
 tshark \
 macchanger \
-wifite
+wifite && \
 
 # BUILD aircrack-ng & airodump-ng
-RUN apt-get build-dep aircrack-ng -y && \
-airodump-ng-oui-update
+apt-get build-dep aircrack-ng -y && \
+airodump-ng-oui-update && \
 
 # INSTALLATION DE hcxtools
-RUN git clone https://github.com/ZerBea/hcxtools.git && \
+git clone https://github.com/ZerBea/hcxtools.git && \
 cd hcxtools && \
 make && make install && \
-rm -rf ../hcxtools
+rm -rf ../hcxtools && \
 
 # INSTALLATION DE hcxdumptool
-RUN git clone https://github.com/ZerBea/hcxdumptool.git && \
+git clone https://github.com/ZerBea/hcxdumptool.git && \
 cd hcxdumptool && \
 make && make install && \
-rm -rf ../hcxdumptool
+rm -rf ../hcxdumptool && \
 
 # NETTOYAGE
-RUN apt-get --purge autoremove -y \
+apt-get --purge autoremove -y \
 wget \
 make && \
 apt-get autoclean -y && \
 rm /etc/apt/sources.list && \
 rm -rf /var/cache/apt/archives/* && \
-rm -rf /var/lib/apt/lists/*
+rm -rf /var/lib/apt/lists/* && \
 
 # AJOUT UTILISATEUR
-RUN useradd -d /home/wifite -m wifite && \
-passwd -d wifite && \
-adduser wifite sudo
+useradd -d /home/${USER} -m ${USER} && \
+passwd -d ${USER} && \
+adduser ${USER} sudo
 
 # SELECTION UTILISATEUR
-USER wifite
+USER ${USER}
 
 # SELECTION ESPACE DE TRAVAIL
-WORKDIR /home/wifite
+WORKDIR /home/${USER}
 
 # COMMANDE AU DEMARRAGE DU CONTENEUR
 CMD /bin/bash
