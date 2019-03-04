@@ -63,13 +63,15 @@ airodump-ng-oui-update && \
 git clone https://github.com/ZerBea/hcxtools.git && \
 cd hcxtools && \
 make && make install && \
-rm -rf ../hcxtools && \
+cd ../ && \
+rm -rf hcxtools && \
 
 # INSTALLATION DE hcxdumptool
 git clone https://github.com/ZerBea/hcxdumptool.git && \
 cd hcxdumptool && \
 make && make install && \
-rm -rf ../hcxdumptool && \
+cd ../ && \
+rm -rf hcxdumptool && \
 
 # NETTOYAGE
 apt-get --purge autoremove -y \
