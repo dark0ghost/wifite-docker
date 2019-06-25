@@ -1,7 +1,5 @@
 # WIFITE
 
-[![dockeri.co](https://dockeri.co/image/alexandreoda/wifite)](https://hub.docker.com/r/alexandreoda/wifite)
-
 
 ## INDEX
 
@@ -14,10 +12,7 @@
 
 ## BADGES
 
-[![version](https://images.microbadger.com/badges/version/alexandreoda/wifite.svg)](https://microbadger.com/images/alexandreoda/wifite)
-[![size](https://images.microbadger.com/badges/image/alexandreoda/wifite.svg)](https://microbadger.com/images/alexandreoda/wifite")
-[![build](https://img.shields.io/docker/build/alexandreoda/wifite.svg)](https://hub.docker.com/r/alexandreoda/wifite)
-[![automated](https://img.shields.io/docker/automated/alexandreoda/wifite.svg)](https://hub.docker.com/r/alexandreoda/wifite)
+[![pipeline status](https://gitlab.com/oda-alexandre/wifite/badges/master/pipeline.svg)](https://gitlab.com/oda-alexandre/wifite/commits/master)
 
 
 ## INTRODUCTION
