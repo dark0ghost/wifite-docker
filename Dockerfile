@@ -1,12 +1,14 @@
+# IMAGE TO USE
 FROM debian:stretch-slim
 
+# MAINTAINER
 MAINTAINER https://www.oda-alexandre.com/
 
 # VARIABLES
 ENV USER wifite
 ENV DEBIAN_FRONTEND noninteractive
 
-# INSTALLATION DES PREREQUIS
+# INSTALL PACKAGES
 RUN apt-get update && apt-get install --no-install-recommends -y \
 ca-certificates \
 apt-transport-https \
@@ -22,12 +24,12 @@ make \
 gcc \
 wget && \
 
-# MODIFICATION DU FICHIER /etc/apt/sources.list AVEC LES REPOS kali-rolling contrib non-free
+# CHANGE OF FILE /etc/apt/sources.list WITH REPOS kali-rolling contrib non-free
 echo 'deb https://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list && \
 echo 'deb-src https://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list && \
 wget -q -O - https://archive.kali.org/archive-key.asc | apt-key add && \
 
-# INSTALLATION DES APPLICATIONS
+# INSTALL OFS APPLICATIONS
 apt-get update && apt-get install --no-install-recommends -y \
 net-tools \
 kmod \
@@ -55,25 +57,25 @@ tshark \
 macchanger \
 wifite && \
 
-# BUILD aircrack-ng & airodump-ng
+# INSTALL OF aircrack-ng & airodump-ng
 apt-get build-dep aircrack-ng -y && \
 airodump-ng-oui-update && \
 
-# INSTALLATION DE hcxtools
+# INSTALL OF hcxtools
 git clone https://github.com/ZerBea/hcxtools.git && \
 cd hcxtools && \
 make && make install && \
 cd ../ && \
 rm -rf hcxtools && \
 
-# INSTALLATION DE hcxdumptool
+# INSTALL OF hcxdumptool
 git clone https://github.com/ZerBea/hcxdumptool.git && \
 cd hcxdumptool && \
 make && make install && \
 cd ../ && \
 rm -rf hcxdumptool && \
 
-# NETTOYAGE
+# CLEANING
 apt-get --purge autoremove -y \
 wget \
 make && \
@@ -82,16 +84,16 @@ rm /etc/apt/sources.list && \
 rm -rf /var/cache/apt/archives/* && \
 rm -rf /var/lib/apt/lists/* && \
 
-# AJOUT UTILISATEUR
+# ADD USER
 useradd -d /home/${USER} -m ${USER} && \
 passwd -d ${USER} && \
 adduser ${USER} sudo
 
-# SELECTION UTILISATEUR
+# SELECT USER
 USER ${USER}
 
-# SELECTION ESPACE DE TRAVAIL
+# SELECT WORKING SPACE
 WORKDIR /home/${USER}
 
-# COMMANDE AU DEMARRAGE DU CONTENEUR
-CMD /bin/bash
+# START THE CONTAINER
+CMD /bin/bash \
