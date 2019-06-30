@@ -1,12 +1,15 @@
+# IMAGE TO USE
 FROM debian:stretch-slim
 
+# MAINTAINER
 MAINTAINER https://www.oda-alexandre.com/
 
+# VARIABLES
 ENV USER wifite
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m' && \
-apt-get update && apt-get install --no-install-recommends -y \
+# INSTALL PACKAGES
+RUN apt-get update && apt-get install --no-install-recommends -y \
 ca-certificates \
 apt-transport-https \
 gnupg \
@@ -19,14 +22,14 @@ git \
 curl \
 make \
 gcc \
-wget
+wget && \
 
-RUN echo -e '\033[36;1m ******* ADD contrib non-free IN sources.list ******** \033[0m' && \
+# CHANGE OF FILE /etc/apt/sources.list WITH REPOS kali-rolling contrib non-free
 echo 'deb https://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list && \
 echo 'deb-src https://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list && \
-wget -q -O - https://archive.kali.org/archive-key.asc | apt-key add
+wget -q -O - https://archive.kali.org/archive-key.asc | apt-key add && \
 
-RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m' && \
+# INSTALL OFS APPLICATIONS
 apt-get update && apt-get install --no-install-recommends -y \
 net-tools \
 kmod \
@@ -52,45 +55,45 @@ reaver \
 cowpatty \
 tshark \
 macchanger \
-wifite
+wifite && \
 
-RUN echo -e '\033[36;1m ******* INSTALL aircrack-ng & airodump-ng ******** \033[0m' && \
+# INSTALL OF aircrack-ng & airodump-ng
 apt-get build-dep aircrack-ng -y && \
-airodump-ng-oui-update
+airodump-ng-oui-update && \
 
-RUN echo -e '\033[36;1m ******* INSTALL hcxtools ******** \033[0m' && \
+# INSTALL OF hcxtools
 git clone https://github.com/ZerBea/hcxtools.git && \
 cd hcxtools && \
 make && make install && \
 cd ../ && \
-rm -rf hcxtools
+rm -rf hcxtools && \
 
-RUN echo -e '\033[36;1m ******* INSTALL hcxdumptool ******** \033[0m' && \
+# INSTALL OF hcxdumptool
 git clone https://github.com/ZerBea/hcxdumptool.git && \
 cd hcxdumptool && \
 make && make install && \
 cd ../ && \
-rm -rf hcxdumptool
+rm -rf hcxdumptool && \
 
-RUN echo -e '\033[36;1m ******* CLEANING ******** \033[0m' && \
+# CLEANING
 apt-get --purge autoremove -y \
 wget \
 make && \
 apt-get autoclean -y && \
 rm /etc/apt/sources.list && \
 rm -rf /var/cache/apt/archives/* && \
-rm -rf /var/lib/apt/lists/*
+rm -rf /var/lib/apt/lists/* && \
 
-RUN echo -e '\033[36;1m ******* ADD USER ******** \033[0m' && \
+# ADD USER
 useradd -d /home/${USER} -m ${USER} && \
 passwd -d ${USER} && \
 adduser ${USER} sudo
 
-RUN echo -e '\033[36;1m ******* SELECT USER ******** \033[0m'
+# SELECT USER
 USER ${USER}
 
-RUN echo -e '\033[36;1m ******* SELECT WORKING SPACE ******** \033[0m'
+# SELECT WORKING SPACE
 WORKDIR /home/${USER}
 
-RUN echo -e '\033[36;1m ******* CONTAINER START COMMAND ******** \033[0m'
+# START THE CONTAINER
 CMD /bin/bash \
