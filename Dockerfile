@@ -55,8 +55,8 @@ macchanger \
 wifite
 
 RUN echo -e '\033[36;1m ******* INSTALL AIRCRACK & AIRODUMP ******** \033[0m' && \
-apt-get build-dep aircrack-ng -y && \
-airodump-ng-oui-update
+apt-get build-dep aircrack-ng -y
+# airodump-ng-oui-update
 
 RUN echo -e '\033[36;1m ******* INSTALL HCXTOOLS ******** \033[0m' && \
 git clone https://github.com/ZerBea/hcxtools.git && \
