@@ -1,6 +1,5 @@
 # WIFITE
 
-
 ## INDEX
 
 - [Badges](#BADGES)
@@ -9,11 +8,9 @@
 - [Install](#INSTALL)
 - [License](#LICENSE)
 
-
 ## BADGES
 
 [![pipeline status](https://gitlab.com/oda-alexandre/wifite/badges/master/pipeline.svg)](https://gitlab.com/oda-alexandre/wifite/commits/master)
-
 
 ## INTRODUCTION
 
@@ -29,20 +26,15 @@ Automatically updated on :
 
 - [docker hub public](https://hub.docker.com/r/alexandreoda/wifite)
 
-
 ## PREREQUISITES
 
 Use [docker](https://www.docker.com)
 
 Use a carte wifi with prise in charge of mode monitor
 
-
 ## INSTALL
 
-```
-docker run -ti --rm --name wifite -v ${HOME}:/home/wifite --privileged --network host alexandreoda/wifite
-```
-
+```docker run -ti --rm --name wifite -v ${HOME}:/home/wifite --privileged --network host alexandreoda/wifite```
 
 ## LICENSE
 
