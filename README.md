@@ -2,11 +2,13 @@
 
 ## INDEX
 
-- [Badges](#BADGES)
-- [Introduction](#INTRODUCTION)
-- [Prerequisites](#PREREQUISITESITES)
-- [Install](#INSTALL)
-- [License](#LICENSE)
+- [WIFITE](#wifite)
+  - [INDEX](#index)
+  - [BADGES](#badges)
+  - [INTRODUCTION](#introduction)
+  - [PREREQUISITES](#prerequisites)
+  - [INSTALL](#install)
+  - [LICENSE](#license)
 
 ## BADGES
 
@@ -30,7 +32,7 @@ Automatically updated on :
 
 Use [docker](https://www.docker.com)
 
-Use a carte wifi with prise in charge of mode monitor
+Use a carte wifi with mode monitor
 
 ## INSTALL
 
