@@ -1,7 +1,6 @@
 # WIFITE
 
-<img src="https://assets.gitlab-static.net/uploads/-/system/project/avatar/12904488/kali-wifite.png" width="200" height="200"/>
-
+![logo](https://assets.gitlab-static.net/uploads/-/system/project/avatar/12904488/kali-wifite.png)
 
 ## INDEX
 
@@ -14,16 +13,13 @@
   - [INSTALL](#install)
   - [LICENSE](#license)
 
-
 ## BADGES
 
 [![pipeline status](https://gitlab.com/oda-alexandre/wifite/badges/master/pipeline.svg)](https://gitlab.com/oda-alexandre/wifite/commits/master)
 
-
 ## FIRST UPDATE
 
 Date: 01-01-01
-
 
 ## INTRODUCTION
 
@@ -39,18 +35,15 @@ Automatically updated on :
 
 - [docker hub public](https://hub.docker.com/r/alexandreoda/wifite)
 
-
 ## PREREQUISITES
 
 Use [docker](https://www.docker.com)
 
 Use a carte wifi with mode monitor
 
-
 ## INSTALL
 
 ```docker run -ti --rm --name wifite -v ${HOME}:/home/wifite --privileged --network host alexandreoda/wifite```
-
 
 ## LICENSE
 
