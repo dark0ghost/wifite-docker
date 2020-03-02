@@ -1,13 +1,13 @@
 # WIFITE
 
-<img src="https://assets.gitlab-static.net/uploads/-/system/project/avatar/12904488/kali-wifite.png" width="200" height="200"/>
-
+![logo](https://assets.gitlab-static.net/uploads/-/system/project/avatar/12904488/kali-wifite.png)
 
 ## INDEX
 
 - [WIFITE](#wifite)
   - [INDEX](#index)
   - [BADGES](#badges)
+  - [FIRST UPDATE](#first-update)
   - [INTRODUCTION](#introduction)
   - [PREREQUISITES](#prerequisites)
   - [INSTALL](#install)
@@ -16,6 +16,10 @@
 ## BADGES
 
 [![pipeline status](https://gitlab.com/oda-alexandre/wifite/badges/master/pipeline.svg)](https://gitlab.com/oda-alexandre/wifite/commits/master)
+
+## FIRST UPDATE
+
+Date: 01-01-01
 
 ## INTRODUCTION
 
