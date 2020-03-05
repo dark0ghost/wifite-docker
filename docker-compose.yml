@@ -1,0 +1,11 @@
+version: "3.7"
+
+services:
+  wifite:
+    container_name: wifite
+    image: alexandreoda/wifite
+    restart: "no"
+    network_mode: host
+    privileged: true
+    volumes:
+      - "${HOME}:/home/wifite"

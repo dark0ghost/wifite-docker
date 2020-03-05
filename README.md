@@ -10,6 +10,8 @@
   - [INTRODUCTION](#introduction)
   - [PREREQUISITES](#prerequisites)
   - [INSTALL](#install)
+    - [DOCKER RUN](#docker-run)
+    - [DOCKER COMPOSE](#docker-compose)
   - [LICENSE](#license)
 
 ## BADGES
@@ -24,7 +26,7 @@ Docker image of :
 
 Continuous integration on :
 
-- [gitlab](https://gitlab.com/oda-alexandre/wifite/pipelines)
+- [gitlab pipelines](https://gitlab.com/oda-alexandre/wifite/pipelines)
 
 Automatically updated on :
 
@@ -38,7 +40,27 @@ Use a carte wifi with mode monitor
 
 ## INSTALL
 
-```docker run -ti --rm --name wifite -v ${HOME}:/home/wifite --privileged --network host alexandreoda/wifite```
+### DOCKER RUN
+
+```\
+docker run -ti --rm --name wifite -v ${HOME}:/home/wifite --privileged --network host alexandreoda/wifite
+```
+
+### DOCKER COMPOSE
+
+```yml
+version: "3.7"
+
+services:
+  wifite:
+    container_name: wifite
+    image: alexandreoda/wifite
+    restart: "no"
+    network_mode: host
+    privileged: true
+    volumes:
+      - "${HOME}:/home/wifite"
+```
 
 ## LICENSE
 
