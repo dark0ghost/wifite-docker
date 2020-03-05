@@ -20,14 +20,15 @@ RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m' && \
   curl \
   make \
   gcc \
-  wget \
-  && \
-  echo -e '\033[36;1m ******* ADD contrib non-free IN sources.list ******** \033[0m' && \
+  wget && \
+  rm -rf /var/lib/apt/lists/*
+
+RUN echo -e '\033[36;1m ******* ADD contrib non-free IN sources.list ******** \033[0m' && \
   echo 'deb https://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list && \
   echo 'deb-src https://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list && \
-  wget -q -O - https://archive.kali.org/archive-key.asc | apt-key add \
-  && \
-  echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m' && \
+  wget -q -O - https://archive.kali.org/archive-key.asc | apt-key add 
+
+RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m' && \
   apt-get update && apt-get install --no-install-recommends -y \
   net-tools \
   kmod \
@@ -53,33 +54,30 @@ RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m' && \
   cowpatty \
   tshark \
   macchanger \
-  wifite \
-  && \
-  echo -e '\033[36;1m ******* INSTALL AIRCRACK & AIRODUMP ******** \033[0m' && \
-  apt-get build-dep aircrack-ng -y && \
-  # airodump-ng-oui-update
-  \
-  echo -e '\033[36;1m ******* INSTALL HCXTOOLS ******** \033[0m' && \
+  wifite
+
+RUN echo -e '\033[36;1m ******* INSTALL AIRCRACK & AIRODUMP ******** \033[0m' && \
+  apt-get build-dep aircrack-ng -y
+# airodump-ng-oui-update
+
+RUN echo -e '\033[36;1m ******* INSTALL HCXTOOLS ******** \033[0m' && \
   git clone https://github.com/ZerBea/hcxtools.git && \
   cd hcxtools && \
   make && make install && \
   cd ../ && \
-  rm -rf hcxtools \
-  && \
-  echo -e '\033[36;1m ******* INSTALL HCXDUMPTOOL ******** \033[0m' && \
+  rm -rf hcxtools
+
+RUN echo -e '\033[36;1m ******* INSTALL HCXDUMPTOOL ******** \033[0m' && \
   git clone https://github.com/ZerBea/hcxdumptool.git && \
   cd hcxdumptool && \
   make && make install && \
   cd ../ && \
-  rm -rf hcxdumptool \
-  && \
-  echo -e '\033[36;1m ******* CLEANING ******** \033[0m' && \
+  rm -rf hcxdumptool
+
+RUN echo -e '\033[36;1m ******* CLEANING ******** \033[0m' && \
   apt-get --purge autoremove -y \
   wget \
-  make && \
-  rm /etc/apt/sources.list && \
-  rm -rf /var/cache/apt/archives/* && \
-  rm -rf /var/lib/apt/lists/*
+  make
 
 RUN echo -e '\033[36;1m ******* ADD USER ******** \033[0m' && \
   useradd -d ${HOME} -m ${USER} && \
