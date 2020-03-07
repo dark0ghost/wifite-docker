@@ -43,7 +43,12 @@ Use a carte wifi with mode monitor
 ### DOCKER RUN
 
 ```\
-docker run -ti --rm --name wifite -v ${HOME}:/home/wifite --privileged --network host alexandreoda/wifite
+docker run -ti --rm \
+--name wifite \
+--privileged \
+--network host \
+-v ${HOME}:/home/wifite \
+alexandreoda/wifite
 ```
 
 ### DOCKER COMPOSE
