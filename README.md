@@ -2,8 +2,6 @@
 
 ![logo](https://assets.gitlab-static.net/uploads/-/system/project/avatar/12904488/kali-wifite.png)
 
-## INDEX
-
 - [WIFITE](#wifite)
   - [INDEX](#index)
   - [BADGES](#badges)
@@ -38,7 +36,7 @@ Use [docker](https://www.docker.com)
 
 Use a carte wifi with mode monitor
 
-## INSTALL
+## BUILD
 
 ### DOCKER RUN
 
