@@ -51,8 +51,8 @@ docker run -ti --rm --name wifite --privileged --network host -v ${HOME}:/home/w
 version: "3.8"
 
 services:
-    wifite:
-     build:
+  wifite:
+    build:
       context: .
       dockerfile:
         Dockerfile
@@ -62,6 +62,9 @@ services:
     privileged: true
     volumes:
       - "${HOME}:/home/wifite"
+```
+```bash 
+docker-compose up --build
 ```
 
 ## LICENSE
