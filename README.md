@@ -15,6 +15,7 @@
 ## BADGES
 
 [![pipeline status](https://gitlab.com/oda-alexandre/wifite/badges/master/pipeline.svg)](https://gitlab.com/oda-alexandre/wifite/commits/master)
+[![Create and publish a Docker image](https://github.com/dark0ghost/wifite/actions/workflows/docker-image-deploy.yml/badge.svg)](https://github.com/dark0ghost/wifite/actions/workflows/docker-image-deploy.yml)
 
 ## INTRODUCTION
 
