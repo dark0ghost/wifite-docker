@@ -51,8 +51,8 @@ docker run -ti --rm --name wifite --privileged --network host -v ${HOME}:/home/w
 version: "2.0"
 
 services:
-   wifite:
-    build:
+    wifite:
+     build:
       context: .
       dockerfile:
         Dockerfile
