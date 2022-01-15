@@ -48,7 +48,7 @@ docker run -ti --rm --name wifite --privileged --network host -v ${HOME}:/home/w
 ### DOCKER COMPOSE
 
 ```yml
-version: "2.0"
+version: "3.8"
 
 services:
     wifite:
