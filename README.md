@@ -52,8 +52,11 @@ version: "2.0"
 
 services:
   wifite:
+    build:
+      context: .
+      dockerfile:
+        Dockerfile
     container_name: wifite
-    image: alexandreoda/wifite
     restart: "no"
     network_mode: host
     privileged: true
