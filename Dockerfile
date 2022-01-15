@@ -1,13 +1,18 @@
-FROM debian:buster-slim
+FROM parrotsec/core:rolling
 
 LABEL authors https://www.oda-alexandre.com
+
+
+LABEL authors https://dark0ghost.github.io/
 
 ENV USER wifite
 ENV HOME /home/${USER}
 ENV DEBIAN_FRONTEND noninteractive
 
+RUN  echo -e '\033[36;1m ******* update info ******** \033[0m' && parrot-upgrade
+
 RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m' && \
-  apt-get update && apt-get install --no-install-recommends -y \
+  apt install --no-install-recommends -y \
   ca-certificates \
   apt-transport-https \
   gnupg \
@@ -23,13 +28,18 @@ RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m' && \
   wget && \
   rm -rf /var/lib/apt/lists/*
 
+
 RUN echo -e '\033[36;1m ******* ADD contrib non-free IN sources.list ******** \033[0m' && \
-  echo 'deb https://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list && \
-  echo 'deb-src https://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list && \
-  wget -q -O - https://archive.kali.org/archive-key.asc | apt-key add 
+    echo 'deb https://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list && \
+    echo 'deb-src https://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list && \
+    echo 'deb-src https://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list && \
+    wget -q -O - https://archive.kali.org/archive-key.asc | apt-key add
+
+RUN  echo -e '\033[36;1m ******* update info ******** \033[0m' && parrot-upgrade
+
 
 RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m' && \
-  apt-get update && apt-get install --no-install-recommends -y \
+  apt install  -y \
   net-tools \
   kmod \
   ieee-data \
@@ -48,7 +58,6 @@ RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m' && \
   aircrack-ng \
   pixiewps \
   bully \
-  pyrit \
   hashcat \
   reaver \
   cowpatty \
@@ -57,25 +66,25 @@ RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m' && \
   wifite
 
 RUN echo -e '\033[36;1m ******* INSTALL AIRCRACK & AIRODUMP ******** \033[0m' && \
-  apt-get build-dep aircrack-ng -y
+  apt build-dep aircrack-ng -y
 # airodump-ng-oui-update
 
 RUN echo -e '\033[36;1m ******* INSTALL HCXTOOLS ******** \033[0m' && \
   git clone https://github.com/ZerBea/hcxtools.git && \
   cd hcxtools && \
-  make && make install && \
+  make -j $(cat /proc/cpuinfo | grep 'cpu cores' | head -1 | cut -d' ' -f3) && make install -j $(cat /proc/cpuinfo | grep 'cpu cores' | head -1 | cut -d' ' -f3) && \
   cd ../ && \
   rm -rf hcxtools
 
 RUN echo -e '\033[36;1m ******* INSTALL HCXDUMPTOOL ******** \033[0m' && \
   git clone https://github.com/ZerBea/hcxdumptool.git && \
   cd hcxdumptool && \
-  make && make install && \
+  make -j $(cat /proc/cpuinfo | grep 'cpu cores' | head -1 | cut -d' ' -f3)  && make install -j $(cat /proc/cpuinfo | grep 'cpu cores' | head -1 | cut -d' ' -f3) && \
   cd ../ && \
   rm -rf hcxdumptool
 
 RUN echo -e '\033[36;1m ******* CLEANING ******** \033[0m' && \
-  apt-get --purge autoremove -y \
+  apt --purge autoremove -y \
   wget \
   make
 
