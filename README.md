@@ -42,7 +42,7 @@ Use a carte wifi with mode monitor
 ### DOCKER RUN
 
 ```bash
-docker run -ti --rm --name wifite --privileged --network host -v ${HOME}:/home/wifite  docker pull ghcr.io/dark0ghost/wifite-docker:latest
+docker run -ti --rm --name wifite --privileged --network host -v ${HOME}:/home/wifite
 ```
 
 ### DOCKER COMPOSE
