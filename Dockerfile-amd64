@@ -2,14 +2,13 @@ FROM parrotsec/core:rolling
 
 LABEL authors https://www.oda-alexandre.com
 
-
 LABEL authors https://dark0ghost.github.io/
 
 ENV USER wifite
 ENV HOME /home/${USER}
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN  echo -e '\033[36;1m ******* update info ******** \033[0m' && parrot-upgrade
+RUN echo -e '\033[36;1m ******* update info ******** \033[0m' && parrot-upgrade
 
 RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m' && \
   apt install --no-install-recommends -y \
