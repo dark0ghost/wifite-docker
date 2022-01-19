@@ -55,7 +55,7 @@ services:
     build:
       context: .
       dockerfile:
-        Dockerfile
+        Dockerfile-amd64
     container_name: wifite
     restart: "no"
     network_mode: host
