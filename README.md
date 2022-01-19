@@ -14,8 +14,8 @@
 
 ## BADGES
 
-[![pipeline status](https://gitlab.com/oda-alexandre/wifite/badges/master/pipeline.svg)](https://gitlab.com/oda-alexandre/wifite/commits/master)
-[![Create and publish a Docker image](https://github.com/dark0ghost/wifite/actions/workflows/docker-image-deploy.yml/badge.svg)](https://github.com/dark0ghost/wifite/actions/workflows/docker-image-deploy.yml)
+[![Create and publish a Docker image amd64](https://github.com/dark0ghost/wifite-docker/actions/workflows/build-docker.yml/badge.svg)](https://github.com/dark0ghost/wifite-docker/actions/workflows/build-docker.yml)
+[![Create and publish a Docker image amd64](https://github.com/dark0ghost/wifite-docker/actions/workflows/build-docker.yml/badge.svg)](https://github.com/dark0ghost/wifite-docker/actions/workflows/build-docker.yml)
 
 ## INTRODUCTION
 
@@ -42,7 +42,7 @@ Use a carte wifi with mode monitor
 ### DOCKER RUN
 
 ```bash
-docker run -ti --rm --name wifite --privileged --network host -v ${HOME}:/home/wifite ghcr.io/dark0ghost/wifite-docker:latest
+docker run -it --rm --name wifite --privileged --network host -v ${HOME}:/home/wifite ghcr.io/dark0ghost/wifite-docker:latest
 ```
 
 ### DOCKER COMPOSE
