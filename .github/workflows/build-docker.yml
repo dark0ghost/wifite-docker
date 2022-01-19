@@ -9,7 +9,6 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-tonistiigi/binfmt:latest
 jobs:
   amd64:
     runs-on: ubuntu-latest
