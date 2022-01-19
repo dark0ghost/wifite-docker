@@ -1,4 +1,5 @@
-FROM parrotsec/core:lts-arm64
+ARG ARCH=arm64
+FROM --platform=linux/$ARCH parrotsec/core:lts-arm64
 
 LABEL authors https://www.oda-alexandre.com
 
@@ -8,7 +9,7 @@ ENV USER wifite
 ENV HOME /home/${USER}
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN  echo -e '\033[36;1m ******* update info ******** \033[0m' && parrot-upgrade
+RUN echo -e '\033[36;1m ******* update info ******** \033[0m' && parrot-upgrade
 
 RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m' && \
   apt install --no-install-recommends -y \
