@@ -23,7 +23,7 @@ jobs:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
         with:
-          image: parrotsec/core:lts-arm64
+          image: tonistiigi/binfmt:latest
           platforms: arm64
 
       - name: Log in to the Container registry
