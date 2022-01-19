@@ -41,29 +41,30 @@ Use a carte wifi with mode monitor
 
 ### DOCKER RUN
 
-```\
-docker run -ti --rm \
---name wifite \
---privileged \
---network host \
--v ${HOME}:/home/wifite \
-alexandreoda/wifite
+```bash
+docker run -ti --rm --name wifite --privileged --network host -v ${HOME}:/home/wifite ghcr.io/dark0ghost/wifite-docker:latest
 ```
 
 ### DOCKER COMPOSE
 
 ```yml
-version: "2.0"
+version: "3.8"
 
 services:
   wifite:
+    build:
+      context: .
+      dockerfile:
+        Dockerfile-amd64
     container_name: wifite
-    image: alexandreoda/wifite
     restart: "no"
     network_mode: host
     privileged: true
     volumes:
       - "${HOME}:/home/wifite"
+```
+```bash 
+docker-compose up --build
 ```
 
 ## LICENSE

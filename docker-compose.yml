@@ -1,11 +1,14 @@
-version: "2.0"
+version: "3.8"
 
 services:
   wifite:
+    build:
+      context: .
+      dockerfile:
+        Dockerfile-amd64
     container_name: wifite
-    image: alexandreoda/wifite
     restart: "no"
     network_mode: host
     privileged: true
     volumes:
-      - "${HOME}:/home/wifite"
+     - "${HOME}:/home/wifite"
