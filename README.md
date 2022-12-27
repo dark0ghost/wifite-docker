@@ -1,6 +1,6 @@
 # WIFITE
 
-![logo](https://assets.gitlab-static.net/uploads/-/system/project/avatar/12904488/kali-wifite.png)
+![logo](https://github.com/dark0ghost/wifite-docker/blob/main/static/wifite.png?raw=true)
 
 - [WIFITE](#wifite)
   - [INDEX](#index)
